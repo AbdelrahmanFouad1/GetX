@@ -4,10 +4,10 @@ import 'package:get_x/controller/rebuild_controller.dart';
 import 'package:get_x/view/page_three.dart';
 import 'package:get_x/view/page_two.dart';
 
-class PageThree extends StatelessWidget {
-  PageThree({Key? key}) : super(key: key);
+class PageFour extends StatelessWidget {
+   PageFour({Key? key}) : super(key: key);
 
-  final exController = Get.put(RebuildController());
+   final exController = Get.put(RebuildController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +17,27 @@ class PageThree extends StatelessWidget {
       ),
       body: Column(
         children: [
-          GetX<RebuildController>(
+          GetBuilder<RebuildController>(
             init: RebuildController(),
             builder: (controller) {
               debugPrint("Rebuild Counter 1");
               return Text(
-                '${controller.counter1.value}',
+                '${controller.counter1}',
                 style: Theme.of(context).textTheme.titleLarge,
               );
             },
           ),
-          GetX<RebuildController>(
+          GetBuilder<RebuildController>(
             init: RebuildController(),
             builder: (controller) {
               debugPrint("Rebuild Counter 2");
               return Text(
-                '${controller.counter2.value}',
+                '${controller.counter2}',
                 style: Theme.of(context).textTheme.titleLarge,
               );
             },
           ),
-          GetX<RebuildController>(
+          GetBuilder<RebuildController>(
             init: RebuildController(),
             builder: (controller) {
               debugPrint("Rebuild Sum");

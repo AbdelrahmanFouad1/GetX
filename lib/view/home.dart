@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get_x/view/page_four.dart';
 import 'package:get_x/view/page_one.dart';
 import 'package:get_x/view/page_three.dart';
 import 'package:get_x/view/page_two.dart';
@@ -20,19 +21,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PageOne()));
-                  // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const PageOne()));
-                  // Navigator.pushAndRemoveUntil(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => const PageOne(),
-                  //     ),
-                  //         (Route<dynamic> route) => false);
-
-                  /// GetX
-
-                  Get.toNamed('/pageOne');
-                  // Get.off(const PageOne());
+                  Get.to( PageOne());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -42,7 +31,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to('/pageTwo');
+                  Get.to(const PageTwo());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -52,7 +41,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to(const PageThree());
+                  Get.to( PageThree());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -62,11 +51,11 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                Get.back();
+                Get.to( PageFour());
               },
               color: Colors.red,
               textColor: Colors.white,
-              child: const Text('Back'),
+              child: const Text('Page Four'),
             ),
           ),
         ],

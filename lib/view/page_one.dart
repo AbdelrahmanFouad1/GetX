@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_x/view/page_three.dart';
-import 'package:get_x/view/page_two.dart';
+import 'package:get_x/controller/home_controller.dart';
 
 class PageOne extends StatelessWidget {
-  const PageOne({Key? key}) : super(key: key);
+  PageOne({Key? key}) : super(key: key);
+
+  final controller =  Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -12,42 +13,42 @@ class PageOne extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Page One'),
       ),
-      body:  Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.to(const PageTwo());
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (controller) {
+                debugPrint("Rebuild");
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        controller.increment();
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
+                    const SizedBox(width: 20),
+                    Text(
+                      '${controller.counter}',
+                      style:  const TextStyle(fontSize: 26.0),
+                    ),
+                    const SizedBox(width: 20),
+                    IconButton(
+                      onPressed: () {
+                        controller.decrement();
+                      },
+                      icon: const Icon(Icons.remove),
+                    ),
+                  ],
+                );
               },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Two'),
             ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.to(const PageThree());
-              },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Three'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                // this is equal to mayPop in material app
-                Get.back();
-                // Navigator.of(context).pop();
-              },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Back'),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

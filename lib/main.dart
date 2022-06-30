@@ -21,11 +21,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
-      getPages: [
-        GetPage(name: '/pageOne', page: () => const PageOne()),
-        GetPage(name: '/pageTwo', page: () => const PageTwo()),
-        GetPage(name: '/pageThree', page: () => const PageThree()),
-      ],
     );
   }
 }
