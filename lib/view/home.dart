@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get_x/view/page_four.dart';
 import 'package:get_x/view/page_one.dart';
-import 'package:get_x/view/page_three.dart';
 import 'package:get_x/view/page_two.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,7 +19,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to(()=>  PageOne());
+                  Get.to(()=> PageOne());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -31,31 +29,11 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to(const PageTwo());
+                  Get.to(() => const PageTwo());
                 },
               color: Colors.red,
               textColor: Colors.white,
               child: const Text('Page Two'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-                onPressed: (){
-                  Get.to(()=> PageThree());
-                },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Three'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.to(()=> PageFour());
-              },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Four'),
             ),
           ),
         ],

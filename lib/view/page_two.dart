@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_x/view/page_three.dart';
+import 'package:get_x/controller/home_controller.dart';
 
 class PageTwo extends StatelessWidget {
   const PageTwo({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -11,38 +12,18 @@ class PageTwo extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Page Two'),
       ),
-      body:  Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
           Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.to(const PageTwo());
+            child: GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (controller) {
+                return Text(
+                  '${controller.counter}',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                );
               },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Two'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.off( PageThree());
-              },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Three ( Off )'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                Get.back();
-              },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Back'),
             ),
           ),
         ],

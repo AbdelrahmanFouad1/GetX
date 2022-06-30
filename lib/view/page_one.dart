@@ -5,7 +5,7 @@ import 'package:get_x/controller/home_controller.dart';
 class PageOne extends StatelessWidget {
   PageOne({Key? key}) : super(key: key);
 
-  final controller =  Get.put(HomeController());
+  final controller = Get.put(HomeController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -18,34 +18,35 @@ class PageOne extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<HomeController>(
-              init: HomeController(),
-              builder: (controller) {
-                debugPrint("Rebuild");
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        controller.increment();
-                      },
-                      icon: const Icon(Icons.add),
-                    ),
-                    const SizedBox(width: 20),
-                    Text(
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    controller.increment();
+                  },
+                  icon: const Icon(Icons.add),
+                ),
+                const SizedBox(width: 20),
+                GetBuilder<HomeController>(
+                  init: HomeController(),
+                  builder: (controller) {
+                    return Text(
                       '${controller.counter}',
-                      style:  const TextStyle(fontSize: 26.0),
-                    ),
-                    const SizedBox(width: 20),
-                    IconButton(
-                      onPressed: () {
-                        controller.decrement();
-                      },
-                      icon: const Icon(Icons.remove),
-                    ),
-                  ],
-                );
-              },
+                      style: const TextStyle(fontSize: 26.0),
+                    );
+                  },
+                ),
+
+                const SizedBox(width: 20),
+                IconButton(
+                  onPressed: () {
+                    controller.decrement();
+                  },
+                  icon: const Icon(Icons.remove),
+                ),
+              ],
             ),
           ],
         ),
