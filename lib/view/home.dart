@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to( PageOne());
+                  Get.to(()=>  PageOne());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to( PageThree());
+                  Get.to(()=> PageThree());
                 },
               color: Colors.red,
               textColor: Colors.white,
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                Get.to( PageFour());
+                Get.to(()=> PageFour());
               },
               color: Colors.red,
               textColor: Colors.white,
