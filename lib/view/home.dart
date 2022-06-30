@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
+import 'package:get_x/controller/home_controller.dart';
 import 'package:get_x/view/page_one.dart';
 import 'package:get_x/view/page_two.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+   HomePage({Key? key}) : super(key: key);
+  final controller = Get.lazyPut(()=> HomeController(), fenix: true);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to(() => const PageTwo());
+                  Get.to(() =>  PageTwo());
                 },
               color: Colors.red,
               textColor: Colors.white,

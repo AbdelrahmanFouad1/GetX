@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_x/controller/home_controller.dart';
 
 class PageTwo extends StatelessWidget {
-  const PageTwo({Key? key}) : super(key: key);
-
+   PageTwo({Key? key}) : super(key: key);
+  final HomeController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
