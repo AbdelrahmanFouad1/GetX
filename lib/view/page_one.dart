@@ -9,6 +9,7 @@ class PageOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Page One'),
@@ -30,6 +31,7 @@ class PageOne extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 GetBuilder<HomeController>(
+
                   init: HomeController(),
                   builder: (controller) {
                     return Text(
