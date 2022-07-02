@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_x/main.dart';
+import 'package:get_x/utils/services/setting_services.dart';
 
 
 class SuperPage extends StatelessWidget {
@@ -18,7 +19,7 @@ class SuperPage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  prefs!.clear();
+                  SettingServices.prefs!.clear();
                   Get.offAllNamed('/');
                 },
               color: Colors.red,

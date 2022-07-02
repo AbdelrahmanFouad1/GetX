@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_x/main.dart';
+import 'package:get_x/utils/services/setting_services.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                prefs!.setString('role', 'user');
+                SettingServices.prefs!.setString('role', 'user');
                 Get.offNamed('home');
               },
               color: Colors.blue,
@@ -30,7 +31,7 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                prefs!.setString('role', 'admin');
+                SettingServices.prefs!.setString('role', 'admin');
                 Get.offNamed('admin');
               },
               color: Colors.blue,
