@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get_x/utils/localization/local.dart';
 import 'package:get_x/utils/middleware/auth_middleware.dart';
 import 'package:get_x/utils/services/setting_services.dart';
 import 'package:get_x/view/admin.dart';
@@ -31,6 +33,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      locale: Get.deviceLocale,
+      translations: MyLocal(),
       getPages: [
         GetPage(name: '/', page: () =>  const LoginPage(), middlewares: [AuthMiddleware()]),
         GetPage(name: '/home', page: () =>  const HomePage()),
