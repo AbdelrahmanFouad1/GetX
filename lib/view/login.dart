@@ -20,23 +20,20 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                SettingServices.prefs!.setString('role', 'user');
-                Get.offNamed('home');
+                Get.defaultDialog(
+                  title: 'Success',
+                  middleText: 'You are logged in',
+                  textCancel: 'Cancel',
+                  textConfirm: 'Ok',
+                  onCancel: (){},
+                  onConfirm: (){
+                  },
+
+                );
               },
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('User Login'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-              onPressed: (){
-                SettingServices.prefs!.setString('role', 'admin');
-                Get.offNamed('admin');
-              },
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: const Text('admin Login'),
+              child: const Text('Show Dialog'),
             ),
           ),
         ],
