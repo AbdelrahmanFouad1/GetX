@@ -19,24 +19,21 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: () {
-                Get.snackbar(
-                  'title',
-                  'How are you!',
-                  colorText: Colors.white,
-                  duration: const Duration(seconds: 2),
-                  snackPosition: SnackPosition.BOTTOM,
-                  backgroundColor: Colors.blue,
-                  borderColor: Colors.black,
-                  borderWidth: 2,
-                  maxWidth: 300,
-                  boxShadows: [
-                    const BoxShadow(
-                      color: Colors.lightBlueAccent,
-                      blurRadius: 10,
-                      spreadRadius: 1,
-                      offset: Offset(0, 10),
-                    )
-                  ],
+                Get.bottomSheet(
+                  Container(
+                    height: 200,
+                   decoration: BoxDecoration(
+                     color: Colors.white,
+                     borderRadius: BorderRadius.circular(40),
+                   ),
+                    child: const Center(
+                      child: Text('Bottom Sheet'),
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  isDismissible: false,
                 );
               },
               color: Colors.blue,
