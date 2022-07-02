@@ -7,7 +7,6 @@ import 'package:get_x/utils/services/setting_services.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,21 +18,30 @@ class LoginPage extends StatelessWidget {
         children: [
           Center(
             child: MaterialButton(
-              onPressed: (){
-                Get.defaultDialog(
-                  title: 'Success',
-                  middleText: 'You are logged in',
-                  textCancel: 'Cancel',
-                  textConfirm: 'Ok',
-                  onCancel: (){},
-                  onConfirm: (){
-                  },
-
+              onPressed: () {
+                Get.snackbar(
+                  'title',
+                  'How are you!',
+                  colorText: Colors.white,
+                  duration: const Duration(seconds: 2),
+                  snackPosition: SnackPosition.BOTTOM,
+                  backgroundColor: Colors.blue,
+                  borderColor: Colors.black,
+                  borderWidth: 2,
+                  maxWidth: 300,
+                  boxShadows: [
+                    const BoxShadow(
+                      color: Colors.lightBlueAccent,
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                      offset: Offset(0, 10),
+                    )
+                  ],
                 );
               },
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('Show Dialog'),
+              child: const Text('Show Snackbar'),
             ),
           ),
         ],
