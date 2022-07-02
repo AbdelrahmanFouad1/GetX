@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:get_x/utils/my_bindings.dart';
+import 'package:get_x/utils/middleware/auth_middleware.dart';
 import 'package:get_x/view/home.dart';
+import 'package:get_x/view/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-
-void main() {
+SharedPreferences? prefs;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
@@ -15,14 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'GetX',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const HomePage(),
-      // initialBinding: MyBinding(),
       getPages: [
-        GetPage(name: '/', page: () => const HomePage()),
+        GetPage(name: '/', page: () =>  const LoginPage(), middlewares: [AuthMiddleware()]),
+        GetPage(name: '/home', page: () =>  const HomePage()),
       ],
     );
   }

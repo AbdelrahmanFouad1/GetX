@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_x/controller/home_controller.dart';
-import 'package:get_x/utils/my_bindings.dart';
-import 'package:get_x/view/page_one.dart';
-import 'package:get_x/view/page_two.dart';
+import 'package:get_x/main.dart';
+
 
 class HomePage extends StatelessWidget {
    const HomePage({Key? key}) : super(key: key);
@@ -20,21 +18,12 @@ class HomePage extends StatelessWidget {
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.to(()=> PageOne(), binding: MyBinding());
+                  prefs!.clear();
+                  Get.offAllNamed('/');
                 },
               color: Colors.red,
               textColor: Colors.white,
-              child: const Text('Page One'),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-                onPressed: (){
-                  Get.to(() =>  PageTwo());
-                },
-              color: Colors.red,
-              textColor: Colors.white,
-              child: const Text('Page Two'),
+              child: const Text('Logout'),
             ),
           ),
         ],
