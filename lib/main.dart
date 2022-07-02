@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get_x/utils/middleware/auth_middleware.dart';
+import 'package:get_x/utils/middleware/super_middleware.dart';
+import 'package:get_x/view/admin.dart';
 import 'package:get_x/view/home.dart';
 import 'package:get_x/view/login.dart';
+import 'package:get_x/view/super.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences? prefs;
@@ -24,8 +27,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       getPages: [
-        GetPage(name: '/', page: () =>  const LoginPage(), middlewares: [AuthMiddleware()]),
+        GetPage(name: '/', page: () =>  const LoginPage(), middlewares: [AuthMiddleware(), SuperMiddleware()]),
         GetPage(name: '/home', page: () =>  const HomePage()),
+        GetPage(name: '/admin', page: () =>  const AdminPage()),
+        GetPage(name: '/super', page: () =>  const SuperPage()),
       ],
     );
   }

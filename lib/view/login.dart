@@ -19,12 +19,23 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: (){
-                prefs!.setString('id', '1');
+                prefs!.setString('role', 'user');
                 Get.offNamed('home');
               },
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('Login'),
+              child: const Text('User Login'),
+            ),
+          ),
+          Center(
+            child: MaterialButton(
+              onPressed: (){
+                prefs!.setString('role', 'admin');
+                Get.offNamed('admin');
+              },
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('admin Login'),
             ),
           ),
         ],
