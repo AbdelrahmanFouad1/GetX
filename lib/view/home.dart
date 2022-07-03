@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_x/utils/localization/local_controller.dart';
+import 'package:get_x/controller/page_two_controller.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyLocalController controller = Get.find();
+    PageTwoController controller = Get.put(PageTwoController());
     return Scaffold(
       appBar: AppBar(
         title:  Text('1'.tr),
@@ -16,24 +16,16 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(controller.name!),
+          Text(controller.age!),
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  controller.changeLanguage('ar');
+                  Get.offAllNamed('/');
                 },
               color: Colors.red,
               textColor: Colors.white,
-              child:  Text('2'.tr),
-            ),
-          ),
-          Center(
-            child: MaterialButton(
-                onPressed: (){
-                  controller.changeLanguage('en');
-                },
-              color: Colors.red,
-              textColor: Colors.white,
-              child:  Text('3'.tr),
+              child:  const Text('Home page'),
             ),
           ),
         ],

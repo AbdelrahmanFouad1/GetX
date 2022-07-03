@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get_x/main.dart';
-import 'package:get_x/utils/services/setting_services.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,26 +18,14 @@ class LoginPage extends StatelessWidget {
           Center(
             child: MaterialButton(
               onPressed: () {
-                Get.bottomSheet(
-                  Container(
-                    height: 200,
-                   decoration: BoxDecoration(
-                     color: Colors.white,
-                     borderRadius: BorderRadius.circular(40),
-                   ),
-                    child: const Center(
-                      child: Text('Bottom Sheet'),
-                    ),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  isDismissible: false,
-                );
+                Get.toNamed('home', arguments: {
+                  'name': 'Abdo',
+                  'age': '21',
+                });
               },
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('Show Snackbar'),
+              child: const Text('Home'),
             ),
           ),
         ],
