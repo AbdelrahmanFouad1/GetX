@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_x/controller/page_two_controller.dart';
+import 'package:get_x/main.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -8,24 +8,28 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PageTwoController controller = Get.put(PageTwoController());
     return Scaffold(
       appBar: AppBar(
-        title:  Text('1'.tr),
+        title:  const Text('Home Page'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(controller.name!),
-          Text(controller.age!),
+         const Text('How are you?'),
           Center(
             child: MaterialButton(
                 onPressed: (){
-                  Get.offAllNamed('/');
+                  if(Get.isDarkMode){
+                    // Get.changeTheme(ThemeData.light());
+                    Get.changeTheme(Themes.customLightTheme);
+                  }else{
+                    // Get.changeTheme(ThemeData.dark());
+                    Get.changeTheme(Themes.customDarkTheme);
+                  }
                 },
               color: Colors.red,
               textColor: Colors.white,
-              child:  const Text('Home page'),
+              child:  const Text('Change Theme'),
             ),
           ),
         ],

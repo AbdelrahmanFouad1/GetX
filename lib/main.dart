@@ -2,16 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:get_x/utils/localization/local.dart';
-import 'package:get_x/utils/localization/local_controller.dart';
-import 'package:get_x/utils/middleware/auth_middleware.dart';
 import 'package:get_x/utils/services/setting_services.dart';
-import 'package:get_x/view/admin.dart';
 import 'package:get_x/view/home.dart';
-import 'package:get_x/view/login.dart';
-import 'package:get_x/view/super.dart';
+
 
 
 void main() async {
@@ -29,20 +22,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyLocalController controller = Get.put(MyLocalController());
     return GetMaterialApp(
       title: 'GetX',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      locale: controller.initialLang,
-      translations: MyLocal(),
+      theme: Themes.customLightTheme,
       getPages: [
-        GetPage(name: '/', page: () =>  const LoginPage()),
-        GetPage(name: '/home', page: () =>  const HomePage()),
-        GetPage(name: '/admin', page: () =>  const AdminPage()),
-        GetPage(name: '/super', page: () =>  const SuperPage()),
+        GetPage(name: '/', page: () =>  const HomePage()),
       ],
     );
   }
+}
+
+class Themes {
+  static ThemeData customDarkTheme = ThemeData(
+    primarySwatch: Colors.red,
+    appBarTheme: const AppBarTheme(color: Colors.red,),
+    brightness: Brightness.dark,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
+
+  static ThemeData customLightTheme = ThemeData(
+    primarySwatch: Colors.green,
+    appBarTheme: const AppBarTheme(color: Colors.green,),
+    brightness: Brightness.light,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
 }
